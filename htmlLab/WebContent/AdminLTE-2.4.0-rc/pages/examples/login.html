@@ -42,7 +42,7 @@
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" class="form-control" placeholder="Password">
+        <input type="password" class="form-control" id="Password">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="row">
@@ -81,6 +81,7 @@
 <!-- jQuery 3 -->
 <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
+
 <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 <!-- iCheck -->
 <script src="../../plugins/iCheck/icheck.min.js"></script>
@@ -93,5 +94,42 @@
     });
   });
 </script>
+
+<script type="text/javascript">
+	//<![CDATA[
+
+	function login(id, pw) {
+		if (id == "hanguk@naver.com") {
+			if (pw == "1234") {
+				alert(id + "님 방문을 환영합니다.");
+				return true;
+			}else {
+				alert("잘못된 비밀번호입니다.");
+			}
+		} else {
+			alert("존재하지 않는 아이디입니다.");
+		}
+	}
+	return false;
+
+	/*질의응답 창을 이용해 방문자에게  아이디와 
+	 비밀번호를 입력받습니다.*/
+	//var user_id = prompt("아이디를 입력하세요.", "")
+	
+	document.getElementById("btn1").onclick = function(){
+	
+	var user_id = document.getElementById("email").value
+	var user_pw = document.getElementByPw("password").value
+	//방문자가 입력한 비밀번호와 아이디를 함수의 매개 변수에 전달합니다.
+			var result = login(user_id, user_pw);
+		if (!result) {
+			return false;
+		}
+	}
+	
+
+	//]]>
+</script> 
+
 </body>
 </html>
